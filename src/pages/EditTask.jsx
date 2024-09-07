@@ -31,7 +31,7 @@ export const EditTask = () => {
       done: isDone,
       limit: postFormatDate(),
     }
-    console.log(limit)
+
 
     axios
       .put(`${url}/lists/${listId}/tasks/${taskId}`, data, {
