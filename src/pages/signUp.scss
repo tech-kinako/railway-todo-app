@@ -1,8 +1,28 @@
 @charset "utf-8";
 
+$tb: 769px;
+$mb: 321px;
+
+@mixin tablet {
+  @media screen and (max-width: $tb) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: $mb) {
+    @content;
+  }
+}
+
+
 .signup {
-  width: 500px;
+  width: 100%;
   margin: 0 auto;
+
+  @include mobile {
+    padding: 20px 0px 0px 20px;
+  }
 
   .signup-form {
     margin: 25px 0;
@@ -14,6 +34,10 @@
     font-size: large;
     height: 30px;
     margin-bottom: 25px;
+
+    @include mobile {
+      width: 80%;
+    }
   }
 
   .signup-button {
