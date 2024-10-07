@@ -1,8 +1,27 @@
 @charset "utf-8";
 
+$tb: 769px;
+$mb: 321px;
+
+@mixin tablet {
+  @media screen and (max-width: $tb) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: $mb) {
+    @content;
+  }
+}
+
 .edit-task {
-  width: 1000px;
+  width: 100%;
   margin: 0 auto;
+
+  @include tablet {
+    padding: 20px 0px 0px 20px;
+  }
 
   .edit-task-form {
     color: #555555;
@@ -11,12 +30,19 @@
   .edit-task-title, .edit-task-detail {
     width: 300px;
     margin-bottom: 25px;
+
+    @include mobile {
+      width: 80%;
+    }
   }
 
   .edit-task-limit {
     display: block;
     margin-bottom: 25px;
     width: 300px;
+    @include mobile {
+      width: 80%;
+    }
   }
 
   .for-limit {

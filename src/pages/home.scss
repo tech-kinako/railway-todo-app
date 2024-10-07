@@ -1,14 +1,46 @@
+$tb: 769px;
+$mb: 321px;
+
+@mixin tablet {
+  @media screen and (max-width: $tb) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: $mb) {
+    @content;
+  }
+}
+
 .taskList {
   margin: 50px auto;
   list-style: none;
-  width: 1000px;
+  width: 70%;
 
   .list-header {
     display: flex;
     justify-content: space-between;
 
+    @include tablet {
+      margin-bottom: 20px;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+
+      h2 {
+        margin-bottom: 5px;
+      }
+    }
+
     .list-menu {
       text-align: right;
+
+      @include mobile {
+        text-align: left;
+      }
     }
   }
 
@@ -16,6 +48,10 @@
     list-style: none;
     display: flex;
     overflow-x: auto;
+
+    @include mobile {
+      flex-direction: column;
+    }
 
     .list-tab-item {
       flex-shrink: 0;
@@ -26,6 +62,10 @@
       border: solid 1px #242F9B;
       justify-content: center;
       align-items: center;
+
+      @include mobile {
+        margin-bottom: 5px;
+      }
     }
 
     .active {
@@ -40,11 +80,24 @@
     .tasks-header {
       display: flex;
       justify-content: space-between;
+
+      @include mobile {
+        flex-direction: column;
+        align-items: flex-start;
+  
+        h2 {
+          margin-bottom: 5px;
+        }
+      }
     }
 
     .display-select-wrapper {
       width: 100px;
       margin: 0 0 25px auto;
+
+      @include mobile {
+       margin: 0px 0px 25px 0px; 
+      }
 
       
     .display-select {
